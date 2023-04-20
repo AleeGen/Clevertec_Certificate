@@ -1,0 +1,50 @@
+plugins {
+    id 'java'
+    id 'war'
+    id "io.freefair.lombok" version "8.0.1"
+}
+
+group 'ru.clevertec'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    junitV = '5.9.2'
+    springV = '6.0.8'
+    jacksonV = '2.14.2'
+    mapstructV = '1.5.4.Final'
+    testContainers = '1.18.0'
+}
+
+dependencies {
+    compileOnly "jakarta.servlet:jakarta.servlet-api:6.0.0"
+    implementation "org.springframework:spring-webmvc:${springV}"
+    implementation "org.springframework:spring-orm:${springV}"
+    implementation "org.hibernate:hibernate-core:6.2.1.Final"
+    implementation "org.hibernate.validator:hibernate-validator:8.0.0.Final"
+    implementation "org.postgresql:postgresql:42.6.0"
+    implementation "com.fasterxml.jackson.core:jackson-databind:${jacksonV}"
+    implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310:${jacksonV}"
+    implementation "cglib:cglib-nodep:2.2.2"
+    implementation "jakarta.validation:jakarta.validation-api:3.0.2"
+    implementation "org.mapstruct:mapstruct:${mapstructV}"
+    annotationProcessor "org.mapstruct:mapstruct-processor:${mapstructV}"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:${junitV}"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitV}"
+    testImplementation "org.junit.jupiter:junit-jupiter-params:${junitV}"
+    testImplementation "org.springframework:spring-test:${springV}"
+    testImplementation "org.testcontainers:postgresql:${testContainers}"
+    testImplementation "org.testcontainers:junit-jupiter:${testContainers}"
+    testImplementation "org.mockito:mockito-junit-jupiter:5.3.1"
+    testImplementation "org.assertj:assertj-core:3.24.2"
+
+
+}
+
+test {
+    useJUnitPlatform()
+}
