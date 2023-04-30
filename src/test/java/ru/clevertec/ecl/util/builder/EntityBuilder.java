@@ -1,4 +1,4 @@
-package ru.clevertec.ecl.builder;
+package ru.clevertec.ecl.util.builder;
 
 public interface EntityBuilder<T> {
 

@@ -2,8 +2,11 @@ package ru.clevertec.ecl.repository.impl;
 
 import org.hibernate.SessionFactory;
 import org.junit.jupiter.api.*;
-import ru.clevertec.ecl.TestContainer;
-import ru.clevertec.ecl.builder.impl.TagBuilder;
+import org.testcontainers.containers.PostgreSQLContainer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.junit.jupiter.Testcontainers;
+import ru.clevertec.ecl.util.TestContainers;
+import ru.clevertec.ecl.util.builder.impl.TagBuilder;
 import ru.clevertec.ecl.entity.Tag;
 
 import java.util.Optional;
@@ -11,19 +14,13 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TagRepositoryTest extends TestContainer {
+class TagRepositoryTest {
 
     private static SessionFactory sessionFactory;
-    private TagRepository rep;
-
-    @BeforeAll
-    static void init() {
-        sessionFactory = sessionFactory();
-    }
+    private static TagRepository rep;
 
     @BeforeEach
     void setUp() {
-        rep = new TagRepository(sessionFactory);
         sessionFactory.getCurrentSession().beginTransaction();
     }
 
@@ -32,8 +29,18 @@ class TagRepositoryTest extends TestContainer {
         sessionFactory.getCurrentSession().getTransaction().commit();
     }
 
+    @Testcontainers
     @Nested
     class CheckFind {
+
+        @Container
+        public static PostgreSQLContainer<?> postgres = TestContainers.getContainer();
+
+        @BeforeAll
+        static void init() {
+            sessionFactory = TestContainers.getSessionFactory(postgres);
+            rep = new TagRepository(sessionFactory);
+        }
 
         @Test
         void allShouldReturnExpectedSize() {
@@ -56,10 +63,35 @@ class TagRepositoryTest extends TestContainer {
                     () -> assertThat(response.getId()).isEqualTo(id));
         }
 
+        @Test
+        void byNameShouldReturnExpected() {
+            String name = "n1";
+            Tag response = rep.findByName(name);
+            assertAll(
+                    () -> assertThat(response).isNotNull(),
+                    () -> assertThat(response.getName()).isEqualTo(name));
+        }
+
+        @Test
+        void byNameShouldReturnNull() {
+            Tag response = rep.findByName("nonExistentName");
+            assertThat(response).isNull();
+        }
+
     }
 
+    @Testcontainers
     @Nested
     class CheckUpdateSave {
+
+        @Container
+        public static PostgreSQLContainer<?> postgres = TestContainers.getContainer();
+
+        @BeforeAll
+        static void init() {
+            sessionFactory = TestContainers.getSessionFactory(postgres);
+            rep = new TagRepository(sessionFactory);
+        }
 
         @Test
         void shouldUpdate() {

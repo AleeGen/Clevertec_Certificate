@@ -7,14 +7,13 @@ import org.mockito.Captor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.clevertec.ecl.builder.impl.TagBuilder;
-import ru.clevertec.ecl.builder.impl.TagRequestBuilder;
+import ru.clevertec.ecl.util.builder.impl.TagBuilder;
+import ru.clevertec.ecl.util.builder.impl.TagRequestBuilder;
 import ru.clevertec.ecl.dto.request.TagRequest;
 import ru.clevertec.ecl.entity.Tag;
 import ru.clevertec.ecl.exception.ServiceException;
 import ru.clevertec.ecl.repository.impl.TagRepository;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 

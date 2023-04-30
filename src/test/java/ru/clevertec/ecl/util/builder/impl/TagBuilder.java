@@ -1,9 +1,9 @@
-package ru.clevertec.ecl.builder.impl;
+package ru.clevertec.ecl.util.builder.impl;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.With;
-import ru.clevertec.ecl.builder.EntityBuilder;
+import ru.clevertec.ecl.util.builder.EntityBuilder;
 import ru.clevertec.ecl.entity.Tag;
 
 @With
