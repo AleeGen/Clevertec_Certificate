@@ -1,0 +1,24 @@
+Hash Join  (cost=60.03..61.34 rows=1 width=86)
+  Hash Cond: (t.id = tab3.tag_id)
+  ->  Seq Scan on tag t  (cost=0.00..1.24 rows=24 width=86)
+  ->  Hash  (cost=60.01..60.01 rows=1 width=8)
+        ->  Subquery Scan on tab3  (cost=60.00..60.01 rows=1 width=8)
+              ->  Limit  (cost=60.00..60.00 rows=1 width=16)
+                    ->  Sort  (cost=60.00..60.14 rows=56 width=16)
+                          Sort Key: (count(gct.tag_id)) DESC
+                          ->  HashAggregate  (cost=59.16..59.72 rows=56 width=16)
+                                Group Key: gct.tag_id
+                                ->  Nested Loop  (cost=31.18..58.88 rows=56 width=8)
+                                      ->  Hash Join  (cost=31.03..56.24 rows=6 width=8)
+                                            Hash Cond: (o.users_id = tab.users_id)
+                                            ->  Seq Scan on orders o  (cost=0.00..22.00 rows=1200 width=16)
+                                            ->  Hash  (cost=31.01..31.01 rows=1 width=8)
+                                                  ->  Subquery Scan on tab  (cost=31.00..31.01 rows=1 width=8)
+                                                        ->  Limit  (cost=31.00..31.00 rows=1 width=16)
+                                                              ->  Sort  (cost=31.00..31.50 rows=200 width=16)
+                                                                    Sort Key: (sum(orders.cost)) DESC
+                                                                    ->  HashAggregate  (cost=28.00..30.00 rows=200 width=16)
+                                                                          Group Key: orders.users_id
+                                                                          ->  Seq Scan on orders  (cost=0.00..22.00 rows=1200 width=16)
+                                      ->  Index Only Scan using gift_certificate_tag_pk on gift_certificate_tag gct  (cost=0.15..0.35 rows=9 width=16)
+                                            Index Cond: (gift_certificate_id = o.gift_certificate_id)
