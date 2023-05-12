@@ -1,6 +1,6 @@
 package ru.clevertec.ecl.service.util.patch;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.experimental.UtilityClass;
 import org.springframework.util.ReflectionUtils;
@@ -38,7 +38,7 @@ public class Patch {
                             (Class<?>) ((ParameterizedType) (field.getGenericType())).getActualTypeArguments()[0])) :
                     mapper.readValue(valueStr, field.getType());
             return new PatchResponse(field, value);
-        } catch (JsonProcessingException eJson) {
+        } catch (JacksonException eJson) {
             throw new UtilException(String.format("Json fail: %s", eJson.getMessage()));
         }
     }

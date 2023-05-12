@@ -25,9 +25,9 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Service
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
-@Service
 public class GiftCertificateServiceImpl implements GiftCertificateService {
 
     private final GiftCertificateRepository gcRep;
@@ -67,7 +67,6 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
                 new ServiceException(String.format("Gift certificate with id = %d not found", gc.id())));
         gcEntity.setLastUpdateDate(LocalDateTime.now());
         gcMapper.updateGC(gcEntity, gc);
-        gcEntity.setLastUpdateDate(LocalDateTime.now());
         gcEntity.setTags(getActualTags(gcMapper.toFrom(gc)));
         gcRep.flush();
         return gcMapper.toFrom(gcEntity);

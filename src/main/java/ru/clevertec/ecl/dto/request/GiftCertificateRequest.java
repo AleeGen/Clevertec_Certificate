@@ -1,8 +1,6 @@
 package ru.clevertec.ecl.dto.request;
 
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Builder;
 
 import java.util.List;
@@ -10,19 +8,18 @@ import java.util.List;
 @Builder
 public record GiftCertificateRequest(Long id,
                                      @Size(max = 30)
-                                     @NotNull
+                                     @NotBlank
                                      String name,
 
                                      @Size(max = 100)
-                                     @NotNull
+                                     @NotBlank
                                      String description,
 
-                                     @NotNull
+                                     @Positive
                                      Double price,
 
-                                     @NotNull
+                                     @Positive
                                      Integer duration,
 
-                                     @NotEmpty
                                      List<TagRequest> tags) {
 }
