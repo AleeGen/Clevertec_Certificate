@@ -39,7 +39,7 @@ public class ExceptionHandlerController {
     private <T extends AbstractErrorResponse> ResponseEntity<T> getResponse(T error, Exception e) {
         error.setMessage(e.getMessage());
         error.setTimeStamp(System.currentTimeMillis());
-        return new ResponseEntity<>(error, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(error, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
 }

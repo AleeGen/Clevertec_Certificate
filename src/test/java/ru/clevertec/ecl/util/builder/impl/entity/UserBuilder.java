@@ -15,7 +15,7 @@ import java.util.List;
 @NoArgsConstructor(staticName = "aUser")
 public class UserBuilder implements EntityBuilder<User> {
 
-    private Long id = 0L;
+    private Long id = 1L;
     private String firstname = "first";
     private String lastname = "last";
     private List<Order> orders = new ArrayList<>(List.of(

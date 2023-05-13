@@ -11,7 +11,7 @@ import ru.clevertec.ecl.util.builder.EntityBuilder;
 @NoArgsConstructor(staticName = "aUserReq")
 public class UserReqBuilder implements EntityBuilder<UserRequest> {
 
-    private Long id = 0L;
+    private Long id = 1L;
     private String firstname = "first";
     private String lastname = "last";
 

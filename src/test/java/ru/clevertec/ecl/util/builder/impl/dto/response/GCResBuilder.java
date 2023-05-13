@@ -16,11 +16,11 @@ import java.util.List;
 @NoArgsConstructor(staticName = "aGCRes")
 public class GCResBuilder implements EntityBuilder<GiftCertificateResponse> {
 
-    private Long id = 0L;
-    private String name = "n0";
-    private String description = "d0";
-    private Double price = 0.0;
-    private Integer duration = 0;
+    private Long id = 1L;
+    private String name = "n1";
+    private String description = "d1";
+    private Double price = 1.0;
+    private Integer duration = 1;
     private LocalDateTime createDate = LocalDateTime.of(2023, 1, 1, 0, 0, 0, 0);
     private LocalDateTime lastUpdateDate = LocalDateTime.of(2023, 1, 1, 0, 0, 0, 0);
     private List<TagResponse> tags = new ArrayList<>(List.of(

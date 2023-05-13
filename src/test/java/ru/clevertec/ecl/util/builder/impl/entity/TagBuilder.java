@@ -11,8 +11,8 @@ import ru.clevertec.ecl.entity.Tag;
 @NoArgsConstructor(staticName = "aTag")
 public class TagBuilder implements EntityBuilder<Tag> {
 
-    private Long id = 0L;
-    private String name = "n0";
+    private Long id = 1L;
+    private String name = "n1";
 
     @Override
     public Tag build() {

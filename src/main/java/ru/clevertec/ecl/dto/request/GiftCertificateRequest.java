@@ -15,9 +15,11 @@ public record GiftCertificateRequest(Long id,
                                      @NotBlank
                                      String description,
 
+                                     @NotNull
                                      @Positive
                                      Double price,
 
+                                     @NotNull
                                      @Positive
                                      Integer duration,
 

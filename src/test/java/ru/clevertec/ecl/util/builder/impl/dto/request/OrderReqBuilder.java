@@ -11,8 +11,8 @@ import ru.clevertec.ecl.util.builder.EntityBuilder;
 @NoArgsConstructor(staticName = "aOrderReq")
 public class OrderReqBuilder implements EntityBuilder<OrderRequest> {
 
-    private Long userId = 0L;
-    private Long gcId = 0L;
+    private Long userId = 1L;
+    private Long gcId = 1L;
 
     @Override
     public OrderRequest build() {

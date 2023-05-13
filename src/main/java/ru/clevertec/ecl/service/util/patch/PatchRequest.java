@@ -1,6 +1,6 @@
 package ru.clevertec.ecl.service.util.patch;
 
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotBlank;
 
 /**
  * An entity request for working with {@link Patch}
@@ -8,9 +8,9 @@ import jakarta.validation.constraints.NotNull;
  * @param field field which will be replaced
  * @param value the value in json format that should be set
  */
-public record PatchRequest(@NotNull
+public record PatchRequest(@NotBlank
                            String field,
 
-                           @NotNull
+                           @NotBlank
                            String value) {
 }

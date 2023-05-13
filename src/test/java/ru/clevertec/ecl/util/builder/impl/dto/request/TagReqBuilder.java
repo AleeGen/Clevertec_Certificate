@@ -11,8 +11,8 @@ import ru.clevertec.ecl.dto.request.TagRequest;
 @NoArgsConstructor(staticName = "aTagReq")
 public class TagReqBuilder implements EntityBuilder<TagRequest> {
 
-    private Long id = 0L;
-    private String name = "n0";
+    private Long id = 1L;
+    private String name = "n1";
 
     @Override
     public TagRequest build() {

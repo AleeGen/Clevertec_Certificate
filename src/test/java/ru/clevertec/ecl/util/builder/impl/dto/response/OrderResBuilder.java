@@ -13,11 +13,11 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(staticName = "aOrderRes")
 public class OrderResBuilder implements EntityBuilder<OrderResponse> {
 
-    private Long id = 0L;
-    private Double cost = 0.0;
+    private Long id = 1L;
+    private Double cost = 1.0;
     private LocalDateTime date = LocalDateTime.of(2023, 1, 1, 0, 0, 0, 0);
-    private Long userId = 0L;
-    private Long gcId = 0L;
+    private Long userId = 1L;
+    private Long gcId = 1L;
 
     @Override
     public OrderResponse build() {
