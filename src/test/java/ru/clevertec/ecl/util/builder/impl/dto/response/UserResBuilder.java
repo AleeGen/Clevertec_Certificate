@@ -29,6 +29,7 @@ public class UserResBuilder implements EntityBuilder<UserResponse> {
                 .id(id)
                 .firstname(firstname)
                 .lastname(lastname)
+                .orders(orders)
                 .build();
     }
 

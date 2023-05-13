@@ -8,7 +8,7 @@ import ru.clevertec.ecl.dto.request.filter.impl.UserFilter;
 import ru.clevertec.ecl.dto.response.UserResponse;
 import ru.clevertec.ecl.entity.User;
 
-@Mapper
+@Mapper(uses = OrderMapper.class)
 public interface UserMapper {
 
     User toFrom(UserRequest userRequest);

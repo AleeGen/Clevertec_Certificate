@@ -8,7 +8,7 @@ import ru.clevertec.ecl.dto.request.filter.impl.GiftCertificateFilter;
 import ru.clevertec.ecl.dto.response.GiftCertificateResponse;
 import ru.clevertec.ecl.entity.GiftCertificate;
 
-@Mapper
+@Mapper(uses = TagMapper.class)
 public interface GiftCertificateMapper {
 
     GiftCertificate toFrom(GiftCertificateRequest gcRequest);
