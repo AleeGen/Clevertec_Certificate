@@ -56,8 +56,7 @@ public class GiftCertificateServiceImpl implements GiftCertificateService {
         gcEntity.setCreateDate(now);
         gcEntity.setLastUpdateDate(now);
         gcEntity.setTags(getActualTags(gcEntity));
-        gcRep.save(gcEntity);
-        return gcMapper.toFrom(gcEntity);
+        return gcMapper.toFrom(gcRep.save(gcEntity));
     }
 
     @Override

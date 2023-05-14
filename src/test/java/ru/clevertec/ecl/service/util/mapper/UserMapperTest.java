@@ -6,10 +6,10 @@ import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.clevertec.ecl.util.builder.impl.dto.request.UserReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.UserResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.UserBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.request.filter.UserFilterBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.UserReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.UserResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.UserBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.filter.UserFilterBuilder;
 
 import java.util.Collections;
 import java.util.stream.IntStream;

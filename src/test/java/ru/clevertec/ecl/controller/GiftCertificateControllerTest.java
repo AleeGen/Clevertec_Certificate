@@ -20,8 +20,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import ru.clevertec.ecl.service.util.patch.PatchRequest;
-import ru.clevertec.ecl.util.builder.impl.dto.request.GCReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.GCResBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.GCReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.GCResBuilder;
 
 import java.util.List;
 import java.util.stream.IntStream;
@@ -44,7 +44,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class GiftCertificateControllerTest {
 
     private static final String pathMethodSources = "ru.clevertec.ecl.controller.GiftCertificateControllerTest#";
-    private static final String MAPPING = "/gcs";
+    private static final String MAPPING = "/gift-certificates";
 
     @Autowired
     private MockMvc mockMvc;

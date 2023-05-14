@@ -2,10 +2,10 @@ package ru.clevertec.ecl.service.util.mapper;
 
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import ru.clevertec.ecl.util.builder.impl.dto.request.TagReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.request.filter.TagFilterBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.TagResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.TagBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.TagReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.filter.TagFilterBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.TagResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.TagBuilder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

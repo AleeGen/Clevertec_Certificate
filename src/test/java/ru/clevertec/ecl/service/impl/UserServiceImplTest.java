@@ -1,6 +1,8 @@
 package ru.clevertec.ecl.service.impl;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Captor;
@@ -16,16 +18,20 @@ import ru.clevertec.ecl.entity.User;
 import ru.clevertec.ecl.repository.UserRepository;
 import ru.clevertec.ecl.service.util.mapper.UserMapper;
 import ru.clevertec.ecl.exception.ServiceException;
-import ru.clevertec.ecl.util.builder.impl.dto.request.UserReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.UserResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.UserBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.UserReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.UserResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.UserBuilder;
 
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class UserServiceImplTest {

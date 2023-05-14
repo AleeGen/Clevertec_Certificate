@@ -1,8 +1,19 @@
 package ru.clevertec.ecl.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Table;
 import jakarta.persistence.Entity;
-import lombok.*;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Column;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinTable;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

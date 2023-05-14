@@ -1,6 +1,8 @@
 package ru.clevertec.ecl.service.impl;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -15,12 +17,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import ru.clevertec.ecl.dto.request.filter.impl.TagFilter;
-import ru.clevertec.ecl.dto.response.TagResponse;
 import ru.clevertec.ecl.repository.TagRepository;
 import ru.clevertec.ecl.service.util.mapper.TagMapper;
-import ru.clevertec.ecl.util.builder.impl.dto.response.TagResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.TagBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.request.TagReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.TagResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.TagBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.TagReqBuilder;
 import ru.clevertec.ecl.entity.Tag;
 import ru.clevertec.ecl.exception.ServiceException;
 
@@ -29,8 +30,12 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class TagServiceImplTest {

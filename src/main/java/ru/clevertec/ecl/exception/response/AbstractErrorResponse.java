@@ -6,6 +6,5 @@ import lombok.Data;
 public abstract class AbstractErrorResponse {
 
     private String message;
-    private long timeStamp;
 
 }

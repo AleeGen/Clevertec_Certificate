@@ -1,10 +1,17 @@
 package ru.clevertec.ecl.service.impl;
 
-import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.jupiter.params.provider.*;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.ParameterizedTest;
-import org.mockito.*;
+import org.mockito.Mock;
+import org.mockito.InjectMocks;
+import org.mockito.Captor;
+import org.mockito.ArgumentCaptor;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
@@ -15,10 +22,10 @@ import ru.clevertec.ecl.dto.request.filter.impl.GiftCertificateFilter;
 import ru.clevertec.ecl.exception.UtilException;
 import ru.clevertec.ecl.service.util.mapper.GiftCertificateMapper;
 import ru.clevertec.ecl.service.util.patch.PatchRequest;
-import ru.clevertec.ecl.util.builder.impl.dto.request.GCReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.GCResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.GCBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.TagBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.GCReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.GCResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.GCBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.TagBuilder;
 import ru.clevertec.ecl.dto.request.GiftCertificateRequest;
 import ru.clevertec.ecl.entity.GiftCertificate;
 import ru.clevertec.ecl.entity.Tag;
@@ -32,8 +39,12 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.doReturn;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class GiftCertificateServiceImplTest {

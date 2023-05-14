@@ -26,7 +26,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/gcs", produces = "application/json")
+@RequestMapping(value = "/gift-certificates")
 public class GiftCertificateController {
 
     private final GiftCertificateServiceImpl gcService;

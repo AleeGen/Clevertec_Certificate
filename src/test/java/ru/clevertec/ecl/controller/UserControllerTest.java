@@ -19,8 +19,8 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import ru.clevertec.ecl.service.impl.UserServiceImpl;
-import ru.clevertec.ecl.util.builder.impl.dto.request.UserReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.UserResBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.UserReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.UserResBuilder;
 
 import java.util.List;
 import java.util.stream.IntStream;

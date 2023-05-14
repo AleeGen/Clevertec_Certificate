@@ -24,12 +24,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/users", produces = "application/json")
+@RequestMapping(value = "/users")
 public class UserController {
 
     private final UserServiceImpl userService;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<UserResponse>> get(UserFilter filter, Pageable pageable) {
         log.info("Request userGetAll: {}", filter);
         List<UserResponse> response = userService.findAll(filter, pageable);

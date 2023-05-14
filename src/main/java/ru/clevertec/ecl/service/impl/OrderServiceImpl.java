@@ -64,6 +64,8 @@ public class OrderServiceImpl implements OrderService {
         Order orderEntity = Order.builder()
                 .cost(gc.getPrice())
                 .date(LocalDateTime.now())
+                .user(user)
+                .gc(gc)
                 .build();
         orderRep.save(orderEntity);
         user.addOrder(orderEntity);

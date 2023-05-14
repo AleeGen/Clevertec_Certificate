@@ -6,10 +6,10 @@ import org.mapstruct.factory.Mappers;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import ru.clevertec.ecl.util.builder.impl.dto.request.GCReqBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.request.filter.GCFilterBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.GCResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.GCBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.GCReqBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.filter.GCFilterBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.GCResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.GCBuilder;
 
 import java.util.Collections;
 import java.util.stream.IntStream;

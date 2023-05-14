@@ -24,7 +24,7 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/tags", produces = "application/json")
+@RequestMapping(value = "/tags")
 public class TagController {
 
     private final TagServiceImpl tagService;

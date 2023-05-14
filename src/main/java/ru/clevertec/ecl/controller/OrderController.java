@@ -24,12 +24,12 @@ import java.util.List;
 @Slf4j
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/orders", produces = "application/json")
+@RequestMapping(value = "/orders")
 public class OrderController {
 
     private final OrderServiceImpl orderService;
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<OrderResponse>> get(OrderFilter filter, Pageable pageable) {
         log.info("Request orderGetAll: {}", filter);
         List<OrderResponse> response = orderService.findAll(filter, pageable);

@@ -13,13 +13,13 @@ public interface GiftCertificateRepository extends JpaRepository<GiftCertificate
     /**
      * Return list of gift certificates that meet the condition.
      *
-     * @param tagName tag name
-     * @param part part of the gift certificate name or description
+     * @param tagName  tag name
+     * @param part     part of the gift certificate name or description
      * @param pageable pagination
      * @return - list of gift certificates that meet the condition
      */
     @Query("""
-            from GiftCertificate gc join fetch gc.tags t
+            from GiftCertificate gc join gc.tags t
             where (:tagName = null or t.name = :tagName)
             and (:part = null or gc.name like %:part% or gc.description like %:part%)
             """)

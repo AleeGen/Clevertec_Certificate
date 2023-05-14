@@ -2,9 +2,9 @@ package ru.clevertec.ecl.service.util.mapper;
 
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import ru.clevertec.ecl.util.builder.impl.dto.request.filter.OrderFilterBuilder;
-import ru.clevertec.ecl.util.builder.impl.dto.response.OrderResBuilder;
-import ru.clevertec.ecl.util.builder.impl.entity.OrderBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.request.filter.OrderFilterBuilder;
+import ru.clevertec.ecl.data.builder.impl.dto.response.OrderResBuilder;
+import ru.clevertec.ecl.data.builder.impl.entity.OrderBuilder;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
